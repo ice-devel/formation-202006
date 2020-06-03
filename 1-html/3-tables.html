@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Les tableaux HTML</title>
+
+    <style>
+        table {
+            /* coller les cellules les unes aux autres en fusionnant les border */
+           border-collapse: collapse;
+        }
+
+        /* plusieurs sélecteurs : séparés par une virgule */
+        table td, table th {
+            border: 1px solid;
+            padding: 10px;
+        }
+        td {
+            text-align: center;
+            height: 50px;
+            vertical-align: middle;
+        }
+        td span {
+            color: orange;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Les tableaux HTML</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Code postal</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Jean</td>
+                <td>Jean</td>
+                <td>59000</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jean</td>
+                <td>Jean</td>
+                <td>75<span>000</span></td>
+                <td>34</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>29,5</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

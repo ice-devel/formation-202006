@@ -3,8 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>CSS</title>
-</head>
-<body>
 
+    <!-- style directement dans le fichier html : pas terrible -->
+    <style>
+        /**
+        mettre du style sur un ou des éléments : sélecteur + propriétés/valeurs
+         */
+        html {
+            font-size: 13px;
+        }
+
+        h1 {
+            color: #2748FF;
+            text-decoration: underline;
+            font-size: 35px;
+            border: 2px solid orange;
+            width: 500px;
+            /* border peut être décomposé en sous-propriété :
+            border-size: 2px;
+            border-color: orange;
+            border-style: dotted;
+            */
+        }
+        h2 {
+            color: green;
+            border-left: 1px solid red;
+            margin-left: 20px;
+            padding-left: 35px;
+        }
+
+        p {
+            font-style: italic;
+            font-family: Arial, sans-serif;
+            background-color: #bab5b5;
+            padding:10px;
+            box-shadow: 5px 5px 10px #000000;
+            text-shadow: 1px 1px 8px green;
+            font-size: 1.5em; /* em multiple par la taille du parent */
+        }
+
+        #span1 {
+            font-size: 3em;
+        }
+
+        .big {
+            font-size: 2em;
+        }
+
+        span {
+            /* rem multiplie par la taille du root (html) */
+            font-size: 1.5rem !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+    <h1>CSS</h1>
+
+    <ul>
+        <li>Par ordre de priorité : </li>
+        <li>!important</li>
+        <li>Style inline</li>
+        <li>Sélecteur par id : #</li>
+        <li class="bold">Sélecteur par <span>class</span> : .</li>
+        <li>Sélecteur par tag (balise)</li>
+    </ul>
+
+    <ul>
+        <li><p><span>Span</span></p></li>
+    </ul>
+    <h2 class="bggreen">Sous titre</h2>
+    <p id="para1">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</p>
+
+    <h2>Sous titre 2</h2>
+    <p>
+        <span id="span1" class="bggreen bold big" style="font-size:1rem;">paragraphe 2</span> Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+    </p>
+
+    <h3>Titre h3</h3>
+    <p>Texte blue</p>
 </body>
 </html>

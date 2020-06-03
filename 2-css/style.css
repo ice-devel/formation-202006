@@ -1,0 +1,54 @@
+/* sélecteur par tag */
+p {
+    text-align: justify;
+    padding:20px;
+}
+
+/* sélecteur par id */
+#para1 {
+    color: purple;
+}
+
+.bggreen {
+    background-color: green;
+    border-right: 2px solid red;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* on peut combiner les sélecteurs */
+li span {
+    color: orange;
+}
+
+li p span a {
+
+}
+
+#para1 div span .coucou a {
+
+}
+
+div span .coucou a {
+
+}
+
+/** les a qui sont enfant direct d'un élément qui a la class .coucou
+ on utilise le caractère : >
+*/
+#para1 div span .coucou > a {
+
+}
+
+li > span {
+    color: yellow;
+}
+
+/* un p qui se trouve juste après un h3
+    on utilise le symbole : ~
+*/
+h3 ~ p {
+    color: darkblue;
+}
