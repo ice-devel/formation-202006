@@ -1,0 +1,101 @@
+<!-- DOCTYPE : version de html utilisée -->
+<!doctype html>
+<html lang="en">
+    <!-- balise head : la configuration de la page -->
+    <head>
+        <!-- balise orpheline : pas de balise fermante -->
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Titre de ma page</title>
+
+        <!-- meta description : utilisée pour le référencement de la page par les moteurs de recherche-->
+        <meta name="DESC" content="Description de ma page">
+    </head>
+
+    <!-- balise body : destinée pour les éléments qui doivent être affichés à l'écran -->
+    <body>
+        <h1>Les balises de base</h1>
+        <!-- dans le body on mets donc les éléments HTML  à afficher -->
+        <!-- Une balise :
+            - un tag : div, p, body, head
+            - un ou des attributs (id, class, style, href, src) : attribut="valeur"
+                (depuis html5, un attribut peut ne peut avoir de valeur :
+                required="required" peut être écrit required)
+        -->
+        <h2>Les paragraphes</h2>
+        <p>
+            Coucou c'est moi, kjiorjgio hfihe eishffu iuhjkcseijvs nkj jsve
+        </p>
+        <p>
+            Paragraphe 2
+        </p>
+
+        <p id="paragraphe3">
+            <!-- Image : balise img avec attribut src obligatoire
+                src : url de l'image à afficher
+                        - url vers une image externe (commence par http://)
+                        - url absolue (avec un slash) :
+                            on démarre l'url juste après le domaine
+                            http://monsite.fr si url "/image.jpg"
+                            url finale : http://monsite.fr/image.jpg
+                        - url relative (sans slash) :
+                            on démarre l'url depuis le dossier dans lequel la page se trouve
+                            "image.jpg", on se trouve sur la page http://monsite.fr/articles/monarticle.html
+                            url finale : http://monsite.fr/articles/image.jpg
+            -->
+            <h2>Les images</h2>
+            <img src="https://via.placeholder.com/300.png/09f/fff"/>
+            <img src="images/logo.png" alt="promo processeur 10%" />
+        </p>
+
+        <!-- Lien : balise a avec attribut href obligatoire
+            href : URL absolute ou relative
+        -->
+        <a href="1-doctype.html">Lien relatif vers la page doctype</a>
+        <a href="https://google.fr" target="_blank">Lien externe vers google</a>
+
+        <!-- attribut facultatif : target -->
+        <a href="2-balises.html" target="_blank">Cette page dans un nouvel onglet</a>
+
+        <!-- pointer vers une ancre -->
+        <a href="#ici">Vers ancre "ici"</a>
+        <a href="2-balises.html#ici" target="_blank">Cette page dans un nouvel onglet, vers ancre "ici"</a>
+
+        <!-- liste non ordonnée : ul -->
+        <ul>
+            <li>Element 1</li>
+            <li>Element 2</li>
+            <li>Element 3</li>
+            <li>Element 4</li>
+        </ul>
+
+        <!-- liste ordonnée : ol -->
+        <ol>
+            <li>Entrée 1</li>
+            <li>Entrée 2</li>
+            <li><p>P4</p><img src="images/logo.png" alt=""></li>
+        </ol>
+
+        <!-- Block : élément div : conteneur d'autres éléments -->
+        <div>
+            <p>P dans div</p>
+            <p>P2 ce texte est en <span style="color:red">rouge</span></p>
+            <span>
+                Texte dans un span
+            </span>
+
+            <span>
+                Texte 2 dans un span
+            </span>
+        </div>
+
+        <h1 id="ici">Titre h1</h1>
+        <h2>Titre h2</h2>
+        <h3>Titre h3</h3>
+        <h4>Titre h4</h4>
+        <h5>Titre h5</h5>
+        <h6>Titre h6</h6>
+    </body>
+</html>
