@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Position</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin-top: 20px;
+        }
+        div {
+            position: static; /* par défaut */
+            border:1px solid;
+            margin-left: 10px;
+        }
+
+        .absolute {
+            position: absolute;
+            width: auto;
+            background-color: #2748FF;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .fixed {
+            position: fixed;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+    <h1>Positionnement</h1>
+
+    <div style="padding:10px;">
+        DIV 1
+    </div>
+
+    <div>
+        DIV 2
+    </div>
+
+    <div class="relative" style="top: 3px;">
+        DIV 6 (relatif : dans le flux, mais on peut le décaler par rapport à lui-même
+    </div>
+
+    <div>
+        DIV 3
+    </div>
+
+    <div class="absolute" style="z-index: 10;bottom:20px;width:100%;padding-left:15px">
+        DIV 4 Le z-index définit les positions premier plan, arrière plan si des éléments se chevauchent
+        (qui est devant qui)
+    </div>
+
+    <div class="absolute" style="background-color:#AEAEAE;top:50px">
+        DIV 5
+    </div>
+
+    <div class="relative" style="height:100px">
+        DIV 7
+        <div class="absolute" style="top:0;height:50px;width:300px;">
+            DIV 8
+            <div class="relative" style="top:0">
+                DIV 9
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+        Les coordonnées (top, left, right, bottom) d'un élément en position relative ou absolute
+        ont pour référence le premier élément parent qui a une position relative ou absolute.
+        S'il n'y en a pas, c'est le body qui sert de référence.
+    </div>
+
+    <div class="fixed" style="width:100%;height:20px;margin-left:0;top:0;left:0;background-color: brown;z-index:11;">
+        MENU
+    </div>
+
+</body>
+</html>

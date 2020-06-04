@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Les formulaires HTML</title>
+
+    <style>
+
+    </style>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1>Les formulaires HTML</h1>
+
+    <div class="alert alert-success" role="alert" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+        A simple success alert—check it out!
+    </div>
+
+    <form action="" method="get">
+        <h2>Types de champ</h2>
+
+        <!--
+            les labels sont liés à un champ de formulaire, pour faciliter le focus,
+            on peut utiliser un placeholder : information dans le champ qui disparait
+            quand on commence à saisir une valeur
+        -->
+        <label for="input_text">Champ texte :</label>
+        <input id="input_text" type="text" name="name" class="form-control"
+               value="" placeholder="Saisissez votre nom"  minlength="2" maxlength="5" required
+
+        />
+
+        <br>
+
+        <label>Champ mot de passe</label>
+        <input type="password" name="password"/>
+
+        <br>
+
+        <label>Liste déroulante</label>
+        <select name="pays">
+            <option value="1">France</option>
+            <option value="2">Belgique</option>
+            <option value="3">Italie</option>
+        </select>
+
+        <br>
+        <label>Boutons radio</label><br>
+        <input type="radio" id="choice1" name="radio_choice" value="1" required/><label for="choice1">Choix 1</label>
+        <input type="radio" id="choice2" name="radio_choice" value="2"/><label for="choice2">Choix 2</label>
+
+        <br>
+
+        <label for="condition">J'accepte les conditions</label>
+        <input type="checkbox" id="condition"/>
+
+        <br>
+
+        <!-- choix multiple -->
+        <label>Fruits</label>
+        <select multiple>
+            <option>Fraise</option>
+            <option>Banane</option>
+            <option>Pomme</option>
+        </select>
+
+        <br>
+
+        <label>Fruits</label>
+        <input type="checkbox" id="fraise"/><label for="fraise">Fraise</label>
+        <input type="checkbox" id="banane"/><label for="banane">Banane</label>
+        <input type="checkbox" id="pomme"/><label for="pomme">Pomme</label>
+
+        <br>
+
+        <label>Zone de texte</label>
+        <textarea></textarea>
+
+        <br>
+
+        <label>Fichier</label>
+        <input type="file" accept=".pdf,.jpg"/>
+
+        <br>
+        <label>Champ number</label>
+        <input type="number"/>
+
+        <br>
+        <label>Champ date</label>
+        <input type="date"/>
+
+        <br>
+        <label>Champ email</label>
+        <input type="email"/>
+
+        <br>
+        <label>Champ tel</label>
+        <input type="tel" pattern="0[0-9]{9}"/>
+
+
+        <input type="submit" value="Valider">
+    </form>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-form">
+        Launch demo modal
+    </button>
+
+    <a href="">
+        <img>
+    </a>
+
+    <div id="modal-form" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Coucou</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+</body>
+</html>
