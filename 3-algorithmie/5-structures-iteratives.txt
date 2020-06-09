@@ -1,0 +1,121 @@
+I - Structure itérative
+
+Boucle POUR
+
+Variables
+    i: entier
+    nombre: entier
+Debut algo
+    POUR i ALLANT de 0 à 999 PAR PAS de 1
+        Afficher "Je dois pas tricher"
+    FIN POUR
+
+    i = 0
+    TANT QUE i <= 999
+        Afficher "Je dois pas tricher"
+        i = i + 1
+    FIN TANT QUE
+
+    i = 0
+    REPETER
+        Afficher "Je dois pas tricher"
+        i = i + 1
+    TANT QUE i <= 998
+
+    // utilisation préconisée de la boucle REPETER
+    REPETER
+        nombre = Saisir "Veuillez saisir un nombre entre 1 et 10"
+    TANT QUE nombre < 1 OU nombre > 10
+
+    nombre = Saisir "Veuillez saisir un nombre entre 1 et 10"
+    TANT QUE nombre < 1 OU nombre > 10
+        nombre = Saisir "Désolé vous vous êtes trompé : entre 1 et 10"
+    FIN TANT QUE
+
+    sum = 0
+    nbTour = 0
+    REPETER
+        nbRandom = RANDOM(1, 10)
+        sum = sum + nbRandom
+        nbTour = nbTour + 1
+    TANT QUE sum < 100
+
+    Afficher "Il a fallu " CONCAT nbTour CONCAT " pour sortir de la boucle"
+Fin algo
+
+Exercice :
+Demander à l'utilisateur de saisir un nombre entre 1 et 9 (lui redonner la main tant qu'il se trompe)
+Ensuite, afficher la table de multiplication de ce nombre :
+1 * 1 = 1
+...
+1 * 9 = 9
+
+2 * 1 = 2
+...
+2 * 9 = 18
+
+Variables
+    chiffre: entier
+Debut algo
+    chiffre = Saisir "Veuillez entrer un chiffre entre 1 et 9"
+    TANT QUE chiffre < 1 OU chiffre > 9
+        chiffre = Saisir "Non c'est pas bon. Veuillez entrer un chiffre entre 1 et 9"
+    FIN TANT QUE
+
+    /*
+    Décomposons les instructions à exécuter pour visualiser si une boucle est utilisable
+    resultat = chiffre * 1
+    Afficher chiffre "* 1 = " resultat
+
+    resultat = chiffre * 2
+    Afficher chiffre "* 2 = " resultat
+
+    // etc. ou en une ligne :
+    Afficher chiffre "* 1 = " (chiffre * 1)
+    Afficher chiffre "* 2 = " (chiffre * 2)
+    Afficher chiffre "* 3 = " (chiffre * 3)
+    Afficher chiffre "* 4 = " (chiffre * 4)
+    Afficher chiffre "* 5 = " (chiffre * 5)
+    Afficher chiffre "* 6 = " (chiffre * 6)
+    Afficher chiffre "* 7 = " (chiffre * 7)
+    Afficher chiffre "* 8 = " (chiffre * 8)
+    Afficher chiffre "* 9 = " (chiffre * 9)
+    */
+
+    POUR i ALLANT DE 1 à 9 PAR PAS de 1
+        Afficher chiffre CONCAT " * " CONCAT i CONCAT " = " CONCAT (chiffre * i)
+    FIN POUR
+Fin algo
+
+Exercice :
+Demander à l'utilisateur de saisir des notes entre 0 et 20 :
+il saisit une note : on lui redonne la main s'il trompe.
+Il décide d'arréter de saisir des notes en saisissant -1.
+Il faut calculer la somme de toutes les notes, pour ensuite lui afficher la moyenne des notes.
+
+Variables
+    somme: entier
+    nbNotes: entier
+Algo
+    somme = 0
+    nbNotes = 0
+    note = Saisir "Veuillez saisir une notre entre 0 et 20"
+    TANT QUE (note != -1)
+        SI note >= 0 ET note <= 20
+            somme = somme + note
+            nbNotes = nbNotes + 1
+            note = Saisir "Veuillez saisir une autre note entre 0 et 20"
+        SINON
+            note = Saisir "Cette note n'est pas bonne, veuillez blabla entre 0 et 20"
+        FIN SI
+    FIN TANT QUE
+
+    Afficher "Merci"
+
+    SI nbNotes > 0
+        moyenne = somme / nbNotes
+        Afficher moyenne
+    SINON
+        Afficher "Beh t'as rien saisi"
+    FIN SI
+Fin algo

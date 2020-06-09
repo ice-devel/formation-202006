@@ -1,0 +1,25 @@
+I - La concaténation :
+Assembler plusieurs chaines de caractères ensemble
+
+
+Variables
+    mot1: chaine
+    mot2: chaine
+    mot3: chaine
+    motEntier: chaine
+Début algo
+    mot1 = "coucou"
+    mot2 = "comment"
+    mot3 = "ça va"
+
+    afficher mot1 // affiche coucou
+    afficher mot2 // affiche comment
+    afficher mot3 // affiche ça va
+
+    // affiche coucoucommentça va
+    afficher mot1 CONCAT mot2 CONCAT mot3
+
+    motEntier = mot1 CONCAT " " CONCAT mot2 CONCAT " " CONCAT mot3
+    afficher motEntier
+    // afficher coucou comment ça va
+Fin algo

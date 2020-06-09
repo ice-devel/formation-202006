@@ -1,0 +1,49 @@
+Exercice 1
+Variables
+	nombre1 : nombre
+	nombre2 : nombre
+	difference : nombre
+Début algo
+	nombre1 = saisir « Veuillez saisir le premier nombre »
+	nombre2 = saisir « Veuillez saisir le deuxième nombre »
+	difference = nombre1 – nombre2
+	afficher difference
+Fin algo
+
+Exercice 2
+    nombre1: entier
+    nombre2: entier
+    produit: entier
+Debut algo
+    nombre1 = Saisir "Veuillez entrer le premier nombre (entre 1 et 50)"
+    TANT QUE (nombre1 < 1 OU nombre1 > 50)
+        nombre1 = Saisir "Erreur. Veuillez entrer le premier nombre (entre 1 et 50)"
+    FIN TANT QUE
+
+    nombre2 = Saisir "Veuillez entrer le deuxième nombre (entre 1 et 50)"
+    TANT QUE (nombre2 < 1 OU nombre2 > 50)
+        nombre2 = Saisir "Erreur. Veuillez entrer le deuxième nombre (entre 1 et 50)"
+    FIN TANT QUE
+
+    produit = nombre1 * nombre2
+    afficher produit
+Fin algo
+
+Exercice 4
+Variables
+	age : entier
+	anneesRestantes : entier
+Début Algo
+	age = saisissez « Quel est votre âge »
+	SI age < 18
+		// en une ligne
+		Afficher « Vous êtes mineur il vous reste » CONCAT (18 - age) CONCAT « années avant d’être majeur »
+
+		// détaillé
+		Afficher « Vous êtes mineur »
+		anneesRestantes = 18 – age
+		Afficher « Nombre d’années restantes avant majorité : » CONCAT anneesRestantes
+	SINON
+		Afficher « Vous êtes majeur »
+	FIN SINON
+Fin Algo

@@ -1,0 +1,91 @@
+I - LE SI (IF/ELSE/ELSEIF)
+Variables
+    chiffre1: entier
+    chiffre2: entier
+    quotient: décimal
+Début algo
+    // Lire chiffre1
+    chiffre1 = Saisir "Veuillez saisir le premier chiffre :"
+    chiffre2 = Saisir "Veuillez saisir le deuxième chiffre :"
+
+    // structure conditionnelle : le SI (IF)
+    SI (chiffre2 != 0)
+       quotient = chiffre1 / chiffre2
+    SINON
+       afficher "Division par zéro impossible"
+       quotient = 0
+    FIN SI
+
+    afficher quotient
+Fin Algo
+
+Début algo
+    SI true
+        // on rentre
+    FIN
+
+    SI faux
+        // on rentre pas
+    FIN SI
+
+    SI (5 == 5 OU 10 < 9)
+        // on rentre ici ? OUI
+    FIN SI
+
+    SI (5 == 5 ET 10 < 9)
+        // on rentre ici ? NON
+    FIN SI
+
+    SI (5 == 5 ET 4 > 5 OU 10 > 9)
+        // on rentre ici ? OUI
+    FIN SI
+
+    SI (5 == 5 ET (4 > 5 OU 10 > 9))
+        // on rentre ici ? OUI
+    FIN SI
+Fin algo
+
+// Tester des conditions les unes après les autres tant que les précédentes
+sont fausses
+Début algo
+    SI 1 == 4
+        // on rentre pas
+    SINON SI 2 == 4
+        // on rentre pas
+    SINON SI 3 == 4
+        // on rentre pas
+    SINON
+        // instructions exécutées seulement si aucune des conditions
+        // ci-dessus n'est pas vraie
+    Fin si
+Fin algo
+
+II - Le SELON (SWITCH)
+
+Variables
+    fruit: chaine
+Algo
+    fruit = "Saisir un fruit"
+    SI fruit == "banane"
+        afficher "Bon choix"
+    SINON SI fruit == "fraise"
+        afficher "C'est bon les fraises"
+    SINON SI fruit == "citron" OU fruit == "kiwi"
+        afficher "t'es chelou"
+    SINON
+        afficher "ok"
+    FIN SI
+
+    // version selon
+    SELON fruit
+        CAS "banane":
+            afficher "Bon choix"
+        CAS "fraise":
+            afficher "C'est bon les fraises"
+        CAS "citron":
+        CAS "kiwi":
+            afficher "t'es chelou"
+        DEFAUT:
+            afficher "ok"
+    FIN SELON
+Fin algo

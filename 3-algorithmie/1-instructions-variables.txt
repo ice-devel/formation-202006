@@ -1,0 +1,28 @@
+Variables
+    // nommer une variable : uniquement caractères alphanumérique
+    // sans commencer par un chiffre
+    // aucun caractère spécial ni espace
+    // remarque : donner des noms de variable explicites pour pouvoir s'y retrouver
+    // ou encore aider les autres développeurs qui reprendront le code
+    chiffre1: entier
+    chiffre2: entier
+    resultat: entier
+Début algo
+    /*
+        Commentaires
+        de bloc
+    */
+    // Commentaire sur une seule ligne
+
+    // nouveau bloc : indentation
+    chiffre1 = 5
+    chiffre2 = 10
+    resultat = chiffre1 * chiffre2
+    afficher resultat
+Fin Algo
+
+// Types primitifs de variables
+- integer
+- decimal / float
+- string
+- boolean
