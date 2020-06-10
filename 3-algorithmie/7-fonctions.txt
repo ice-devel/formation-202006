@@ -1,0 +1,126 @@
+I - Les fonctions
+
+// une procédure (par abus de langage, on appelle tous ceci une fonction)
+// on exécute des instructions sans retourner de valeur
+Variables
+Debut Fonction sayHello()
+    Afficher "Hello"
+    Afficher "Hello2"
+Fin fonction
+
+// une fonction : même chose qu'une procédure mais renvoie une valeur
+Variables
+    resultat: entier
+Debut Fonction displayMultiplication()
+    resultat = 5 * 5
+
+    retourner resultat
+    // dès qu'une instruction "retourner" est exécutée, la fonction est finie
+    // même si du code est écrit après cette ligne
+Fin fonction
+
+Variables
+    // les variables d'une fonction ont une portée locale :
+    // elles ne sont accessibles que dans la fonction
+    somme: entier
+Debut fonction addition(nombre1:entier, nombre2:entier) // cette ligne est ce qu'on appelle la signature de la fonction
+    somme = nombre1 + nombre2
+    retourner somme
+Fin fonction
+
+Variables
+// paramètres optionnels : on donne une valeur par défaut
+// directement dans la signature
+// on n'est plus obligé de passer le paramètre lors de l'appel
+// de la fonction
+// ATTENTION : les paramètres optionnels sont forcément définis en dernier dans la signature
+// il ne peut y avoir aucun paramètre obligatoire après un paramètre optionnel
+Debut fonction sayHelloTo(firstname:chaine, language:chaine="FR")
+    SI language == "FR"
+        afficher "Bonjour " CONCAT firstname
+    SINON SI language == "EN"
+        afficher "Hello " CONCAT firstname
+    SINON
+        // lancer l'exception : faire planter exprès l'appli car valeur non autorisée
+        lancer exception
+    FIN SI
+Fin fonction
+
+Variables
+Debut fonction afficherPrenoms(prenomsParametre:tableau de chaine)
+    POUR CHAQUE prenom DANS prenomsParametre
+        afficher prenom
+    FIN POUR
+Fin fonction
+
+Variables
+    nombre: entier
+    variableFonction: function
+    prenomUtilisateur: chaine
+Debut algo
+    sayHello()
+    sayHello()
+    afficher displayMultiplication()
+    nombre = displayMultiplication()
+
+    // on peut affecter une fonction à une variable
+    variableFonction = displayMultiplication
+    // du coup on peut utiliser cette variable comme si c'était une variable
+    afficher variableFonction() // affiche 5
+
+    // utiliser une fonction avec ces paramètres : passer des valeurs aux paramètres
+    // dans l'ordre où ils sont définis dans la signature de la fct
+    afficher addition(2, 12) // affiche 14
+    afficher addition(25, 3) // affiche 28
+
+    // on peut utiliser la valeur de retour comme l'on souhaite
+    SI (addition(2, 5) > 6)
+        // on rentre ici car 7 > 6
+    FIN SI
+
+    ajouter "toto" dans prenoms
+    ajouter "jean" dans prenoms
+    afficherPrenoms(prenoms)
+
+    ajouter "toto2" dans listePrenoms
+    ajouter "jean2" dans listePrenoms
+    afficherPrenoms(listePrenoms)
+
+    prenomUtilisateur = saisir "Quel est votre prénom ?"
+    sayHelloTo(prenomUtilisateur, "FR")
+    sayHelloTo(prenomUtilisateur, "EN")
+
+    sayHelloTo("David")
+    sayHelloTo("Ivan")
+    sayHelloTo("Ivan", "EN")
+
+    sayHelloTo("Toto", "ES") // lancer l'exception : faire planter exprès l'appli car valeur non autorisée
+Fin algo
+
+Exercice :
+Créer une fonction qui multiplie deux nombres (passés en paramètre)
+entre eux et retourne le résultat.
+Utiliser cette fonction dans un algo principal et afficher le résultat.
+
+Variables
+    produit: entier
+Debut fonction multiplication(nb1:entier, nb2:entier):entier
+    produit = nb1 * nb2
+    retourner produit
+Fin
+
+Variables
+    resultat: entier
+Debut algo
+    resultat = multiplication(12, 2)
+    afficher resultat
+
+    resultat = multiplication(45, 2)
+    afficher resultat
+Fin algo
+
+Créer une fonction qui prend un âge (entier) en paramètre et
+retourne si oui ou non (booléen) cet âge est celui d’une personne majeure.
+Utilisez cette fonction dans un algo principal,
+et afficher « Vous êtes majeur » si elle renvoie vrai, « Vous êtes mineur » sinon.
+

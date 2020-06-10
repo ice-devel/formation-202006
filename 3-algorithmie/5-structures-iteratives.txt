@@ -85,6 +85,11 @@ Debut algo
     POUR i ALLANT DE 1 à 9 PAR PAS de 1
         Afficher chiffre CONCAT " * " CONCAT i CONCAT " = " CONCAT (chiffre * i)
     FIN POUR
+
+    // transposition en PHP
+    for ($i=1;$i<=9;$i++) {
+
+    }
 Fin algo
 
 Exercice :
@@ -118,4 +123,73 @@ Algo
     SINON
         Afficher "Beh t'as rien saisi"
     FIN SI
+Fin algo
+
+Exercice
+Demander 4 notes (entre 0 et 20) à l'utilisateur et calculer la moyenne
+- version sans boucle
+- version avec boucle
+
+Variables
+    note1: entier
+    note2: entier
+    note3: entier
+    note4: entier
+    somme: entier
+    moyenne: decimal
+Debut algo
+    // v1
+    note1 = Saisir "Saisir la note 1"
+    note2 = Saisir "Saisir la note 2"
+    note3 = Saisir "Saisir la note 3"
+    note4 = Saisir "Saisir la note 4"
+
+    somme = note1 + note2 + note3 + note4
+    moyenne = somme / 4
+
+    // v2
+    note1 = Saisir "Saisir la note 1"
+    somme = note1
+
+    note2 = Saisir "Saisir la note 2"
+    somme = somme + note2
+
+    note3 = Saisir "Saisir la note 3"
+    somme = somme + note3
+
+    note4 = Saisir "Saisir la note 4"
+    somme = somme + note4
+
+    moyenne = somme / 4
+
+    // v3
+    somme = 0
+
+    note = Saisir "Saisir la note 1"
+    somme = somme + note
+
+    note = Saisir "Saisir la note 2"
+    somme = somme + note
+
+    note = Saisir "Saisir la note 3"
+    somme = somme + note
+
+    note = Saisir "Saisir la note 4"
+    somme = somme + note
+
+    moyenne = somme / 4
+
+    // v4
+    nbNotes = 4
+
+    POUR i ALLANT DE 0 à nbNotes-1 PAR PAS DE 1
+        note = Saisir "Saisir la note " CONCAT (i + 1)
+        TANT QUE note < 0 OU note > 20
+            note = Saisir "Saisir la note " CONCAT (i + 1)
+        FIN TANT QUE
+
+        somme = somme + note
+    FIN POUR
+
+    moyenne = somme / nbNotes
 Fin algo

@@ -1,0 +1,155 @@
+I - Les tableaux
+Un tableau est un ensemble de valeurs, qui sont placées à des indices.
+
+Variables
+    prenoms: tableau de chaines
+    prenomsDemandes: tableau de chaines
+Debut algo
+    // par défaut, le tableau prenoms est vide : 0 élément
+
+    // push : ajouter un élément dans un tableau en dernière position
+    ajouter "toto" dans prenoms
+    ajouter "david" dans prenoms
+
+    // à cette ligne, le tableau prenoms contient 2 éléments
+
+    // utiliser une valeur d'un tableau
+    afficher prenoms[0]
+    premierPrenom = prenoms[0]
+    SI prenoms[0] == "salut"
+        // ici on rentre pas niet
+    FIN SI
+    prenoms[0] = "toto2"
+
+    ajouter "toto4" dans prenoms
+    ajouter "toto5" dans prenoms
+    ajouter "toto10" dans prenoms
+
+    // afficher tous les éléments du tableau
+    afficher prenoms[0]
+    afficher prenoms[1]
+    afficher prenoms[2]
+    afficher prenoms[3]
+    afficher prenoms[4]
+
+    // du coup : boucle pour
+    POUR i ALLANT DE 0 à 4 PAR PAS de 1
+        afficher prenoms[i]
+    FIN POUR
+
+    // remplir un tableau en demandant à l'utilisateur
+    prenom = Saisir "Saisissez un prénom"
+    TANT QUE prenom != "STOP"
+        ajouter prenom dans prenomsDemandes
+        prenom = Saisir "Merci. Saisissez un autre prénom"
+    FIN TANT QUE
+
+    POUR i ALLANT DE 0 à LONGUEUR(prenomsDemandes)-1 PAR PAS de 1
+        afficher prenomsDemandes[i]
+    FIN POUR
+
+    // equivalent en PHP
+    for ($i=0;$i<count($prenomsDemandes);$i++) {
+        echo $prenomsDemandes[$i];
+    }
+Fin algo
+
+Exercice 6 du doc
+Demander à l’utilisateur de saisir des notes, et de taper -1 pour stopper.
+Stocker chacune des notes saisies dans une variable tableau. Ensuite
+(une fois sorti de la boucle),
+Afficher chacune des notes précédées de son indice.
+note 1 : 10
+note 2 : 15
+note 3 : 11
+Enfin, afficher la moyenne sous ce format : « Moyenne = 36 / 3 = 12 »
+
+Exercice 7 du doc :
+Demander à l’utilisateur son année de naissance, puis son mois de naissance,
+et enfin son jour de naissance.
+Calculer alors précisément son âge en années.
+Vous avez à disposition les 3 fonctions suivantes pour récupérer le jour actuel :
+anneeActuelle = year()
+moisActuel = month()
+jourActuel = day()
+
+Variables
+    age: entier
+Debut algo
+    // V1
+    anneeActuelle = year()
+    moisActuel = month()
+    jourActuel = day()
+
+    anneeNaissance = Saisir "Année de naissance"
+    moisNaissance = Saisir "Mois de naissance"
+    jourNaissance = Saisir "Jour de naissance"
+
+
+    // 11 juin 2000
+    // 10 juin 2020 : actuelle
+    SI (moisNaissance > moisActuel)
+        age = anneeActuelle - anneeNaissance - 1
+    FIN SI
+
+    SI (moisNaissance < moisActuel)
+        age = anneeActuelle - anneeNaissance
+    FIN SI
+
+    SI (moisNaissance == moisActuel)
+        SI (jourActuel < jourNaissance)
+            age = anneeActuelle - anneeNaissance - 1
+        FIN SI
+
+        SI (jourActuel == jourNaissance)
+            age = anneeActuelle - anneeNaissance
+        FIN SI
+
+        SI (jourActuel > jourNaissance)
+            age = anneeActuelle - anneeNaissance
+        FIN SI
+    FIN SI
+
+    // V2
+    SI (moisNaissance > moisActuel)
+        age = anneeActuelle - anneeNaissance - 1
+    SINON SI (moisNaissance < moisActuel)
+        age = anneeActuelle - anneeNaissance
+    SINON
+        SI (jourActuel < jourNaissance)
+            age = anneeActuelle - anneeNaissance - 1
+        SINON SI (jourActuel == jourNaissance)
+            age = anneeActuelle - anneeNaissance
+        SINON
+            age = anneeActuelle - anneeNaissance
+        FIN SI
+    FIN SI
+
+    // V3
+    SI (moisNaissance > moisActuel OU moisNaissance == moisActuel ET jourActuel < jourNaissance)
+        age = anneeActuelle - anneeNaissance - 1
+    SINON
+        age = anneeActuelle - anneeNaissance
+    FIN SI
+
+    // V4
+    // vérif date correcte
+
+    anneeActuelle = year()
+    moisActuel = month()
+    jourActuel = day()
+    dateActuelle = anneeActuelle CONCAT moisActuel CONCAT jourActuel
+    REPETER
+        anneeNaissance = Saisir "Année de naissance"
+        moisNaissance = Saisir "Mois de naissance"
+        jourNaissance = Saisir "Jour de naissance"
+        dateNaissance = anneeNaissance CONCAT moisNaissance CONCAT jourNaissance
+    TANT QUE (INTEGER(dateNaissance) > INTEGER(dateActuelle)
+
+    age = anneeActuelle - anneeNaissance
+    SI (moisNaissance > moisActuel OU moisNaissance == moisActuel ET jourActuel < jourNaissance)
+        age = age - 1
+    SINON
+
+    Afficher age
+Fin algo
