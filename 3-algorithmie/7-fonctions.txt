@@ -24,8 +24,12 @@ Variables
     // elles ne sont accessibles que dans la fonction
     somme: entier
 Debut fonction addition(nombre1:entier, nombre2:entier) // cette ligne est ce qu'on appelle la signature de la fonction
+    // V1
     somme = nombre1 + nombre2
     retourner somme
+
+    // V2
+    retourner nombre1 + nombre2
 Fin fonction
 
 Variables
@@ -124,3 +128,268 @@ retourne si oui ou non (booléen) cet âge est celui d’une personne majeure.
 Utilisez cette fonction dans un algo principal,
 et afficher « Vous êtes majeur » si elle renvoie vrai, « Vous êtes mineur » sinon.
 
+Variables
+    majeur: booléen
+Debut Fonction estMajeur(age:entier):boolean
+    // V1
+    SI age >= 18
+        majeur = vrai
+    SINON
+        majeur = faux
+    FIN SI
+
+    retourner majeur
+
+    // V1 BIS
+    majeur = age >= 18 ? vrai : faux
+    retourner majeur
+
+    // V2
+    SI age >= 18
+        retourner vrai
+    SINON
+        retourner faux
+    FIN SI
+
+    // V3 : affecteur une le résultat d'une condition dans une variable
+    majeur = age >= 18
+    retourner majeur
+
+    // V4 : retourner directement le résultat de la condition
+    retourner age >= 18
+
+Fin fonction
+
+Variables
+    age: entier
+    msg: chaine
+Debut algo
+    age = 15
+    SI estMajeur(age) == vrai
+        afficher "Vous êtes majeur"
+    SINON
+        afficher "Vous êtes mineur"
+    FIN SI
+
+    age = 18
+    SI estMajeur(age) == vrai
+        afficher "Majeur"
+    SINON
+        afficher "Mineur"
+    FIN SI
+
+    // affecter une valeur grâce à une condition ternaire : une condition ? valeur si vraie : valeur si faux
+    msg = estMajeur(age) == vrai ? "Vous êtes majeur" : "Vous êtes mineur"
+
+    // il est inutile de comparer une fonction qui retourne un booléan avec vrai ou faux : elle est elle-même FAUX ou VRAIE
+    // ce qui est suffisant dans une condition
+    msg = estMajeur(age) ? "Vous êtes majeur" : "Vous êtes mineur"
+    afficher msg
+
+    SI estMajeur(age)
+        afficher "Vous êtes majeur"
+    SINON
+        afficher "Vous êtes mineur"
+    FIN SI
+Fin algo
+
+// V LAST
+Variables
+Debut Fonction estMajeur(age:entier):boolean
+    retourner age >= 18
+Fin fonction
+
+Variables
+    age: entier
+Debut algo
+    age = 17
+
+    SI estMajeur(age)
+        afficher "Vous êtes majeur"
+    SINON
+        afficher "Vous êtes mineur"
+    FIN SI
+Fin algo
+
+
+Exercices :
+Exercice 8 du doc :
+Demander à l’utilisateur de saisir un nombre de notes indéterminé (-1 pour stop), en stockant ces notes dans un tableau.
+Afficher ensuite la note la plus basse.
+Faire deux boucles : une pour remplir le tableau, une autre pour trouver la note la plus basse.
+
+Variables
+    notes: tableau entier
+    note: entier
+    min: entier
+Debut algo
+    note = Saisir "Veuillez saisir une note"
+    TANT QUE note != -1
+        ajouter note dans notes
+        note = Saisir "Merci. Veuillez saisir une note"
+    FIN TANT QUE
+
+    min = notes[0]
+    POUR i ALLANT DE 0 à LONGUEUR(notes) - 1 PAR PAS DE 1
+        SI notes[i] <= min
+            min = notes[i]
+        FIN SI
+    FIN POUR
+
+    // étant donné qu'il est inutile de comparer la première note
+    // avec la première note, on peut démarrer le pour à l'indice 1
+    // pour comparer tout de suite la deuxième avec la première (qu'on a considérée
+    // comme étant la plus petite pour initialiser la variable "min")
+    min = notes[0]
+    POUR i ALLANT DE 1 à LONGUEUR(notes) - 1 PAR PAS DE 1
+        SI notes[i] <= min
+            min = notes[i]
+        FIN SI
+    FIN POUR
+Fin algo
+
+Exercice 9 du doc :
+Demander à l’utilisateur de saisir un nombre de notes indéterminé (-1 pour stop),
+en stockant ces notes dans un tableau.
+Créer une fonction qui retourne la valeur la plus grande d'un tableau (d'entier),
+utilisez cette fonction dans un algo principal.
+
+Variables
+    notes: tableau entier
+    note: entier
+Debut fonction saisirNotes()
+    note = Saisir "Veuillez saisir une note"
+    TANT QUE note != -1
+        ajouter note dans notes
+        note = Saisir "Veuillez saisir une note"
+    FIN TANT QUE
+    retourner notes
+Fin fonction
+
+Variable
+    maximum: entier
+Debut fonction max(tabEntiers: tableau entier)
+    maximum = tabEntiers[0]
+    POUR i ALLANT de 1 à LONGUEUR(tabEntiers)-1 PAR PAS DE 1
+        SI tabEntiers[i] >= maximum
+            maximum = tabEntiers[i]
+        FIN SI
+    FIN POUR
+
+    retourner maximum
+Fin fonction
+
+Variables
+    listeNotes: tableau de entier
+Début algo
+    listeNotes = saisirNotes()
+    afficher max(listeNotes)
+
+    liste2 = saisirNotes()
+    afficher max(liste2)
+Fin algo
+
+
+Exercice 12 du doc :
+Créer une fonction qui prend en paramètre un tableau,
+et qui retourne un nouveau tableau dont tous les éléments du premier ont été inversés.
+[1,3,2] => [2,3,1]
+["toto", "bidule"] => ["bidule", "toto"]
+
+Variables
+    nouveauTab : tableau chaine
+Debut fonction reverse(tab: tableau chaine)
+    /*
+    ["a", "b", "c", "d"]
+    ["d", "c", "b", "a"]
+    [0] = [LONGUEUR(tab)-1-0]
+    [1] = [LONGUEUR(tab)-1-1]
+    [2] = [LONGUEUR(tab)-1-2]
+    [3] = [LONGUEUR(tab)-1-3]
+
+    [3] = [0]
+    [2] = [1]
+    [1] = [2]
+    [0] = [3]
+    */
+
+    POUR i ALLANT DE LONGUEUR(tab)-1 à 0 PAR PAS de -1
+        nouveauTab[i] = tab[LONGUEUR(tab)-1-i]
+    FIN POUR
+
+    retourner nouveauTab
+Fin fonction
+
+Variables
+    tabPrenoms: tableau chaine
+    tabPrenomsInverses: tableau chaine
+Debut algo
+    ajouter "jean" dans tabPrenoms
+    ajouter "kevin" dans tabPrenoms
+
+    tabPrenomsInverses = reverse(tabPrenoms)
+Fin algo
+
+
+Ecrire une fonction isPalindrome
+qui prend un paramètre (chaine de caractère) et qui retourne si oui ou non
+cette chaine est un palindrome
+Vous pouvez utiliser cette chaine comme si c'était un tableau, c'est à dire
+accéder à chacune des lettres grâce à sa position (indice)
+prenom: chaine
+prenom = "toto"
+prenom[1] : correspond à la lettre o
+
+maison : nosiam
+kayak : kayak
+
+Variables
+    nouveauMot: chaine
+    isPalin: booléen
+Debut fonction isPalindrome(mot:chaine)
+    // v1 : créer un nouveau mot avec les lettres inversés et regarder les deux mots sont égaux
+    POUR i ALLANT DE 0 à LONGUEUR(mot)-1 PAR PAS de 1
+        nouveauMot[i] = mot[LONGUEUR(mot)-1-i]
+    FIN POUR
+
+    retourner nouveauMot == mot
+
+    // v2
+    bonjour 7-1=6  7 : 3 tours
+    b r 0 6
+    o u 1 5
+    n o 2 4
+    j j
+    o n
+    u o
+    r b
+
+    tototo 6 : 3 tours
+    t o
+    o t
+    t o
+    o t
+    t o
+    o t
+
+    isPalin = vrai
+    POUR i ALLANT DE 0 à LONGUEUR(mot)-1 PAR PAS de 1
+        SI mot[i] != mot[LONGUEUR(mot)-1-i]
+            isPalin = faux
+        FIN SI
+    FIN POUR
+
+    retourner isPalin
+
+Fin fonction
+
+Variables
+    word: chaine
+Debut algo
+    word = Saisir "Veuillez saisir un mot"
+    SI isPalindrome(word)
+        afficher "Votre mot est un palindrome"
+    SINON
+        afficher "Papalindrome"
+    FIN SI
+Fin algo
