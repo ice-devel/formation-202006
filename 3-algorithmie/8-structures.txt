@@ -1,0 +1,39 @@
+I - Les structures
+Variable
+	Personne : structure {
+		nom : chaine
+		email : chaine
+		age : entier
+		adresse : chaine
+	}
+
+	personne1 : Personne
+personne2 : Personne
+Debut algo
+	personne1.nom = « Toto »
+	personne1.email = « toto@pouet.fr »
+	personne1.age = 25
+	personne1.adresse = « 33, rue paris »
+
+	personne2.nom = « abdel »
+	personne2.email = « abdel@mail.fr »
+	personne2.age = 32
+
+	afficher personne1.nom CONCAT personne1.email
+Fin algo
+
+Debut algo
+    // tableau numérique
+	notes[0] = 15
+	notes[1] = 18
+
+	// tableau associatif
+	personne["nom"] = "toto"
+	personne["age"] = 25
+
+	POUR CHAQUE bubu dans personne
+	    afficher bubu
+	FIN POUR CHAQUE
+
+	afficher personne["nom"]
+Fin algo

@@ -1,0 +1,91 @@
+Ecrire l’algorithme qui :
+-	Ajoute des produits respectant cette structure, dans un tableau
+Produit : structure {
+		Nom : chaine
+		Prix : entier
+}
+Produits : tableau de Produit
+-	Il faut 4 produits : vélo 120€, Cadre 5€, Chaise 10€, Pull 20€
+-	Affiche ces produits en vente en les préfixant par un indice
+-	Donner la main à l’utilisateur pour lui demander quel produit il veut acheter :
+    il choisit un produit grâce à son indice. Tant qu’il n’a pas saisi -1,
+    on lui redonne la main pour qu’il puisse choisir d’autres produits (gestion de panier)
+-	Quand il a fini il faut afficher le prix total
+-	Puis lui donner la main pour qu’il nous dise avec combien d’argent il va payer
+    S’il ne donne pas assez d’argent, on recommence l’étape précédent
+    S’il donne pile poil l’argent demandé ou plus,
+    on lui dit merci et on lui rend si nécessaire la monnaie
+
+variables
+    prod: Produit
+debut fonction creerProduit(nom:chaine, prix:entier)
+    prod.nom = nom
+    prod.prix = prix
+    retourner prod
+fin fonction
+
+Structures
+    Produit : structure {
+    	nom : chaine
+    	prix : entier
+    }
+Variables
+    prod: Produit
+    listeProduits: tableau de Produit
+    panier: tableau de Produit
+    somme: entier
+    argent: entier
+    monnaie: entier
+Debut algo
+    // sans fonction :
+    prod.nom = "Vélo"
+    prod.prix = 120
+    ajouter prod dans listeProduits
+
+    // avec la fonction
+    prod = creerProduit("Cadre", 5)
+    ajouter prod dans listeProduits
+
+    // avec la fonction en une ligne
+    ajouter creerProduit("Chaise", 10) dans listeProduits
+    ajouter creerProduit("Pull", 20) dans listeProduits
+
+    POUR i ALLANT DE 0 à LONGUEUR(listeProduits)-1 PAR PAS DE 1
+        afficher (i+1) CONCAT listeProduits[i].nom CONCAT listeProduits[i].prix
+    FIN POUR
+
+    /*
+    1 vélo 120
+    2 Cadre 5
+    3 Chaise 10
+    4 Pull 20
+    */
+    choix = Saisir "Veuillez choisir un produit"
+    TANT QUE (choix != -1)
+        ajouter listeProduits[choix-1] dans panier
+        choix = Saisir "Veuillez choisir un autre produit"
+    FIN TANT QUE
+
+    // calculer du prix
+    somme = 0
+    POUR i ALLANT de 0 à LONGUEUR(panier)-1 PAR PAS DE 1
+        somme = somme + panier[i].prix
+    FIN POUR
+
+    afficher "Le prix total est " CONCAT somme
+
+    // lui demander l'argent
+    argent = Saisir "Avec combien voulez-vous payer ?"
+    TANT QUE argent < somme
+        afficher "Pas assez"
+        argent = Saisir "Avec combien voulez-vous payer ?"
+    FIN TANT QUE
+
+    // lui rendre la monnaie si trop d'argent
+    monnaie = argent - somme
+    SI monnaie > 0
+        afficher "Voici votre monnaie " CONCAT monnaie
+    FIN SI
+
+    afficher "Merci orvoir"
+Fin algo

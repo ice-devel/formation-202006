@@ -393,3 +393,44 @@ Debut algo
         afficher "Papalindrome"
     FIN SI
 Fin algo
+
+Fonctions récursives
+
+Debut Fonction pasTriche(nbAffichages:entier)
+    SI nbAffichages > 0
+        afficher "Je dois pas tricher"
+        pasTriche(nbAffichages-1)
+    FIN SI
+Fin fonction
+
+Debut algo
+    pasTriche(50)
+    pasTriche(150)
+Fin algo
+
+Variables
+Debut fonction factorielle(chiffre:entier)
+    SI chiffre > 1
+        retourner chiffre * factorielle(chiffre-1)
+    FIN SI
+
+    retourner 1
+Fin fonction
+
+5
+1 * 1 = 1
+1 * 2 = 2
+2 * 3 = 6
+6 * 4 = 24
+24 * 5 = 120
+
+Debut algo
+    /*
+    5!
+    1 * 2 * 3 * 4 * 5
+
+    3!
+    1 * 2 * 3
+    */
+    afficher factorielle(5)
+Fin algo
